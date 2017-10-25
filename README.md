@@ -1,1 +1,1 @@
-# jsfunctions
+# JS / jQUery Functions
