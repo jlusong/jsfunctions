@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>Character Counter: English & Chinese<head>
+<body>
+input sample text:
+<input id="test-data" value="我很好！dasdasdasd">
+<br> no. of characters:
+<input id="stat" class="stat">
+<br>
+<button id="check">
+  check
+</button>
+<br> character split:
+<br>
+<div class="print-data">
+
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script>
+$(function(){
+  $("#test-data").keyup(function(){
+    var t = countCharInput("#test-data");
+    $('#stat').val(countCharInput("#test-data"));
+  });
+
+  function countCharInput(inputid){
+    var cd = [];
+    f = 0;
+    cd = $(inputid).val().split('');
+    jQuery.each(cd, function(key, value) {
+      if (value.match(/[\u3400-\u9FBF]/)) {
+        f += 2
+      } else {
+        f++
+      }
+    });
+    return f;
+  }
+  });
+</script>
+</body>
+</html>
